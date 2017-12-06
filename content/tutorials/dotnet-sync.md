@@ -157,4 +157,4 @@ spec:
 ```
 
 ## Technical Details
-If you are interested in the technical details of how this all works, please see the [overview](../overview.md).
+If you are interested in the technical details of how this all works, please see the [overview](/tutorials/overview/).

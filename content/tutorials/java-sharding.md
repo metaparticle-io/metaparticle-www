@@ -33,7 +33,7 @@ The second layer is the shards themselves. Because every shard is different, the
 
 A diagram of the shard architecture is below
 
-![sharding architecture diagram](../images/sharded_layers.png "Sharded architecture")
+![sharding architecture diagram](/img/sharded_layers.png "Sharded architecture")
 
 ### Deploying a sharded architecture
 Typically a shard deployment would consist of two different application containers (the router and the shard), two different deployment configurations and two services to connect pieces together. That's a lot of YAML and a lot of complexity for an enduser to

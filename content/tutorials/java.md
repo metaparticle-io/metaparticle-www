@@ -7,7 +7,7 @@ draft: false
 # Metaparticle/Package for Java Tutorial
 This is an in-depth tutorial for using Metaparticle/Package for Java
 
-For a quick summary, please see the [README](README.md).
+For a quick summary, please see the [about metaparticle](/about/).
 
 ## Initial Setup
 
@@ -314,4 +314,4 @@ $ kubectl get services
 ...
 ```
 
-Still looking for more? Continue on to the more advanced [sharding tutorial](sharding-tutorial.md)
+Still looking for more? Continue on to the more advanced [sharding tutorial](/tutorials/java-sharding/)

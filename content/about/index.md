@@ -5,7 +5,7 @@ title = "About"
 
 Metaparticle is a _standard library_ for cloud native applications on Kubernetes.
 
-The goals of the Metaparticle project are to democratize the development of distributed
+The goal of Metaparticle is to democratize the development of distributed
 systems. Metaparticle achieves this by providing simple, but powerful building blocks,
 built on top of containers and Kubernetes.
 
