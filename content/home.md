@@ -15,7 +15,7 @@ or try one of our online tutorials:
 
    * [Javascript/NodeJS](tutorials/javascript/)
    * [Java](tutorials/java/)
-   * [Dotnet](tutorials/dotnet/)
+   * [.NET](tutorials/dotnet/)
    * More languages coming soon!
 
 Metaparticle is a work in progress.

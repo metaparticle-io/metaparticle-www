@@ -9,17 +9,17 @@ accomplish a variety of different development tasks, in a variety of languages.
 ## Deploying Containers & Replicated Services
    * [Javascript/NodeJS](/tutorials/javascript/)
    * [Java](/tutorials/java/)
-   * [Dotnet](/tutorials/dotnet/)
+   * [.NET](/tutorials/dotnet/)
 
 ## Distributed Synchronization: Locks & Election
    * [Javascript/NodeJS](/tutorials/javascript-sync/)
    * [Java](/tutorials/java-sync/)
-   * [Dotnet](/tutorials/dotnet-sync/)
+   * [.NET](/tutorials/dotnet-sync/)
 
 ## Container native patterns: Sharding
    * [Javascript/NodeJS](javascript-sharding/)
    * [Java](java-sharding/)
-   * [Dotnet](dotnet-sharding/)
+   * [.NET](dotnet-sharding/)
 
 ## More coming soon
 

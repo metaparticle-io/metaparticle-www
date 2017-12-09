@@ -1,10 +1,10 @@
 ---
-title: "Metaparticle/Sharding for Dotnet"
+title: "Metaparticle/Sharding for .NET"
 date: 2017-11-21
 draft: false
 ---
 
-## Metaparticle/Sharding for Dotnet Tutorial
+## Metaparticle/Sharding for .NET Tutorial
 
 _Note, this is an advanced tutorial, please start with the [initial tutorial](tutorial.md)_
 
@@ -39,7 +39,7 @@ A diagram of the shard architecture is below
 Typically a shard deployment would consist of two different application containers (the router and the shard), two different deployment configurations and two services to connect pieces together. That's a lot of YAML and a lot of complexity for an enduser to
 absorb to implement a fairly straightforward concept.
 
-To show how Metaparticle/Sharding can help dramatically simplify this, here is the corresponding code in Dotnet:
+To show how Metaparticle/Sharding can help dramatically simplify this, here is the corresponding code in .NET:
 
 ```cs
 using System.IO;
