@@ -1,10 +1,10 @@
 ---
-title: "Metaparticle for Dotnet"
+title: "Metaparticle for .NET"
 date: 2017-11-21
 draft: false
 ---
 
-# Metaparticle/Package for Dotnet Tutorial
+# Metaparticle/Package for .NET Tutorial
 This is an in-depth tutorial for using Metaparticle/Package for Java
 
 For a quick summary, please see the [about metaparticle](/about/).
