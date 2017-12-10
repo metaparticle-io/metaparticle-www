@@ -4,7 +4,7 @@ date: 2017-11-19T20:35:01-08:00
 draft: true
 ---
 
-Ever since I helped create Kuberentes, I've been driven by a mission to democratize distributed systems.
+Ever since I helped create Kubernetes, I've been driven by a mission to democratize distributed systems.
 To make them easier to build and more reliable.
 
 Today, I'm excited to introduce the next step in that journey:
