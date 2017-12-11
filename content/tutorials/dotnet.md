@@ -5,7 +5,7 @@ draft: false
 ---
 
 # Metaparticle/Package for .NET Tutorial
-This is an in-depth tutorial for using Metaparticle/Package for DotNet languages like C#.
+This is an in-depth tutorial for using Metaparticle/Package for  C#.
 
 For a quick summary, please see the [about metaparticle](/about/).
 
