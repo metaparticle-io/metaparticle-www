@@ -53,6 +53,7 @@ lock.lock();
 ```
 
 You'll notice that a lock is made up of three things:
+
    * A name (this should be unique for a cluster)
    * A callback function to be called when the lock is acquired.
    * An optional callback function to be called when the lock is lost. If this is not supplied, the program will forcibly exit in the (unlikely) case that a lock is lost.
