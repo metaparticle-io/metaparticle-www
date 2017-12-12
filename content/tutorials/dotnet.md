@@ -5,7 +5,7 @@ draft: false
 ---
 
 # Metaparticle/Package for .NET Tutorial
-This is an in-depth tutorial for using Metaparticle/Package for Java
+This is an in-depth tutorial for using Metaparticle/Package for  C#.
 
 For a quick summary, please see the [about metaparticle](/about/).
 
@@ -29,7 +29,7 @@ $ code .
 ```
 
 ## Initial Program
-Inside of the `tutorials/dotnet` directory, you will find a simple maven project.
+Inside of the `tutorials/dotnet` directory, you will find a AspNet Core project.
 
 You can build this project with `dotnet build`.
 
