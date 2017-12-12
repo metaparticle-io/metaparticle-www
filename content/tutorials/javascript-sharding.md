@@ -15,7 +15,7 @@ to replicated serving, all requests that are the same, go to the same shard. Sha
 useful because it ensures that only a small number of a containers handle any particular
 request. This in turn ensures that caches stay hot and if failures occur, they are limited to a small subset of users.
 
-Sharding is accomplished by appling a _ShardFunction_ to the request, the ShardFunction
+Sharding is accomplished by applying a _ShardFunction_ to the request, the ShardFunction
 returns a number, and this number is used to calculate the Shard (typically by taking the
 result modulo the number of shards).
 
