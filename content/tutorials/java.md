@@ -30,13 +30,13 @@ get them up into Maven central shortly...
 
 git clone https://github.com/metaparticle-io/metaparticle-java
 cd metaparticle-java
-mvn package install
+mvn install
 
 # Install Metaparticle/Package
 
 git clone https://github.com/metaparticle-io/package
 cd package/java
-mvn package install
+mvn install
 ```
 
 ### Get the code
@@ -239,7 +239,7 @@ Now if you run this with `mvn compile exec:java -Dexec.mainClass=io.metaparticle
 
 ## Replicating and exposing on the web.
 As a final step, consider the task of exposing a replicated service on the internet.
-To do this, we're going to expand our suage of the `@Runtime` tag. First we will
+To do this, we're going to expand our usage of the `@Runtime` tag. First we will
 add a `replicas` field, which will specify the number of replicas. Second we will
 set our execution environment to `metaparticle` which will launch the service
 into the currently configured Kubernetes environment.

@@ -1,10 +1,10 @@
 ---
-title: "Metaparticle for .NET"
+title: "Metaparticle for .NET Core"
 date: 2017-11-21
 draft: false
 ---
 
-# Metaparticle/Package for .NET Tutorial
+# Metaparticle/Package for .NET Core tutorial
 This is an in-depth tutorial for using Metaparticle/Package for  C#.
 
 For a quick summary, please see the [about metaparticle](/about/).
@@ -68,8 +68,8 @@ build file, and then update the code.
 
 Run:
 ```sh
-dotnet add package Metaparticle.Package --version="0.1.0-beta"
-dotnet add package Metaparticle.Runtime --version="0.1.0-beta"
+dotnet add package Metaparticle.Package --version="0.1.3-beta"
+dotnet add package Metaparticle.Runtime --version="0.1.3-beta"
 ```
 
 Then update the code to read as follows:
@@ -180,7 +180,7 @@ Now if you run this with `dotnet run` your webserver will be successfully expose
 
 ## Replicating and exposing on the web.
 As a final step, consider the task of exposing a replicated service on the internet.
-To do this, we're going to expand our suage of the `Metaparticle.Runtime.Config` tag. First we will
+To do this, we're going to expand our usage of the `Metaparticle.Runtime.Config` tag. First we will
 add a `replicas` field, which will specify the number of replicas. Second we will
 set our execution environment to `metaparticle` which will launch the service
 into the currently configured Kubernetes environment.
