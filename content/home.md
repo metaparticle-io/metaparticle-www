@@ -14,6 +14,7 @@ To learn more about Metaparticle, please see [about Metaparticle](/about/)
 or try one of our online tutorials:
 
    * [Javascript/NodeJS](tutorials/javascript/)
+   * [Python](tutorials/python/)
    * [Java](tutorials/java/)
    * [.NET](tutorials/dotnet/)
    * More languages coming soon!
