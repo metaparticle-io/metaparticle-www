@@ -8,6 +8,7 @@ accomplish a variety of different development tasks, in a variety of languages.
 
 ## Deploying Containers & Replicated Services
    * [Javascript/NodeJS](/tutorials/javascript/)
+   * [Python](/tutorials/python/)
    * [Java](/tutorials/java/)
    * [.NET](/tutorials/dotnet/)
 
