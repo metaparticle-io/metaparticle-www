@@ -6,7 +6,7 @@ draft: false
 
 ## Metaparticle/Sharding for Java Tutorial
 
-_Note, this is an advanced tutorial, please start with the [initial tutorial](tutorial.md)_
+_Note, this is an advanced tutorial, please start with the [initial tutorial](/tutorials/java) for Java_
 
 ### Sharding
 Sharding is the process of dividing requests between a server using some characteristic 

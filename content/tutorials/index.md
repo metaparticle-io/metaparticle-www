@@ -17,9 +17,9 @@ accomplish a variety of different development tasks, in a variety of languages.
    * [.NET](/tutorials/dotnet-sync/)
 
 ## Container native patterns: Sharding
-   * [Javascript/NodeJS](javascript-sharding/)
-   * [Java](java-sharding/)
-   * [.NET](dotnet-sharding/)
+   * [Javascript/NodeJS](/tutorials/javascript-sharding/)
+   * [Java](/tutorials/java-sharding/)
+   * [.NET](/tutorials/dotnet-sharding/)
 
 ## More coming soon
 

@@ -6,7 +6,7 @@ draft: false
 
 ## Metaparticle/Sharding for .NET Tutorial
 
-_Note, this is an advanced tutorial, please start with the [initial tutorial](tutorial.md)_
+_Note, this is an advanced tutorial, please start with the [initial tutorial](/tutorials/dotnet) for .NET_
 
 ### Sharding
 Sharding is the process of dividing requests between a server using some characteristic 
