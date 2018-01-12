@@ -13,7 +13,7 @@ built on top of containers and Kubernetes.
 To learn more about Metaparticle, please see [about Metaparticle](/about/)
 or try one of our online tutorials:
 
-   * [Javascript/NodeJS](tutorials/javascript/)
+   * [JavaScript/NodeJS](tutorials/javascript/)
    * [Python](tutorials/python/)
    * [Java](tutorials/java/)
    * [.NET](tutorials/dotnet/)
@@ -21,4 +21,4 @@ or try one of our online tutorials:
 
 Metaparticle is a work in progress.
 
-Please come join in the fun on our [github page](https://github.com/metaparticle-io)
+Please come join in the fun on our [GitHub page](https://github.com/metaparticle-io)
