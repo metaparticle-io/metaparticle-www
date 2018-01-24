@@ -163,7 +163,7 @@ mp.containerize(
 );
 ```
 
-Now if you run this with `npm run` your webserver will be successfully exposed on port 8080.
+Now if you run this with `npm start`, your web server will start inside the container and be successfully exposed on port 8080.
 
 ## Replicating and exposing on the web.
 As a final step, consider the task of exposing a replicated service on the internet.
