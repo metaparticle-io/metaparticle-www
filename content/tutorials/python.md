@@ -44,7 +44,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         self.send_response(OK)
         self.send_header("Content-type", "text/plain")
         self.end_headers()
-        self.wfile.write("Hello Metparticle [{}] @ {}\n".format(self.path, socket.gethostname()).encode('UTF-8'))
+        self.wfile.write("Hello Metaparticle [{}] @ {}\n".format(self.path, socket.gethostname()).encode('UTF-8'))
         print("request for {}".format(self.path))
     def do_HEAD(self):
         self.send_response(OK)
@@ -78,7 +78,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         self.send_response(OK)
         self.send_header("Content-type", "text/plain")
         self.end_headers()
-        self.wfile.write("Hello Metparticle [{}] @ {}\n".format(self.path, socket.gethostname()).encode('UTF-8'))
+        self.wfile.write("Hello Metaparticle [{}] @ {}\n".format(self.path, socket.gethostname()).encode('UTF-8'))
         print("request for {}".format(self.path))
     def do_HEAD(self):
         self.send_response(OK)
@@ -144,7 +144,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         self.send_response(OK)
         self.send_header("Content-type", "text/plain")
         self.end_headers()
-        self.wfile.write("Hello Metparticle [{}] @ {}\n".format(self.path, socket.gethostname()))
+        self.wfile.write("Hello Metaparticle [{}] @ {}\n".format(self.path, socket.gethostname()))
         print("request for {}".format(self.path))
     def do_HEAD(self):
         self.send_response(OK)
@@ -208,7 +208,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         self.send_response(OK)
         self.send_header("Content-type", "text/plain")
         self.end_headers()
-        self.wfile.write("Hello Metparticle [{}] @ {}\n".format(self.path, socket.gethostname()))
+        self.wfile.write("Hello Metaparticle [{}] @ {}\n".format(self.path, socket.gethostname()))
         print("request for {}".format(self.path))
     def do_HEAD(self):
         self.send_response(OK)
