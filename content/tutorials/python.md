@@ -216,7 +216,7 @@ from metaparticle_pkg import Containerize
 
 OK = 200
 
-port = 8088
+port = 8080
 
 class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
     def do_GET(self):
@@ -232,12 +232,12 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
 @Containerize(
     package={
-        'repository': 'wbuchwalter',
-        'name': 'mp-server',
+        'repository': 'docker.io/your-docker-user-goes-here',
+        'name': 'my-image',
         'publish': True
     },
     runtime={
-        'ports': [8088],
+        'ports': [8080],
         'replicas': 4,
         'executor': 'metaparticle'
     }
