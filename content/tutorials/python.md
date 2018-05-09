@@ -67,7 +67,7 @@ code and then update the code to read as follows:
 ```python
 from six.moves import SimpleHTTPServer, socketserver
 import socket
-from metaparticle import containerize
+from metaparticle_pkg import Containerize
 
 OK = 200
 
@@ -85,8 +85,13 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         self.send_header("Content-type", "text/plain")
         self.end_headers()
 
-@containerize(
-    'docker.io/your-docker-user-goes-here', options={'name': 'my-image', 'publish': True})
+@Containerize(
+    package={
+        'repository': 'docker.io/your-docker-user-goes-here', 
+        'name': 'my-image',
+        'publish': True
+        }
+)
 def main():
     Handler = MyHandler
     httpd = socketserver.TCPServer(("", port), Handler)
@@ -96,7 +101,7 @@ if __name__ == '__main__':
     main()
 ```
 
-You will notice that we added a `@containerize` annotation that describes how
+You will notice that we added a `@Containerize` annotation that describes how
 to package the application. You will need to replace `your-docker-user-goes-here`
 with an actual Docker repository path.
 
@@ -123,17 +128,23 @@ The code snippet to add is:
 
 ```python
 ...
-@containerize('docker.io/your-docker-user-goes-here', options={'ports': ['8080']})
+@Containerize(
+    package={
+        'repository': 'docker.io/your-docker-user-goes-here',
+        'name': 'my-image',
+        'publish': True
+    },
+    runtime={'ports': [8080]}
+)
 ...
 ```
 
 This tells the runtime the port(s) to expose. The complete code looks like:
 
 ```python
-import SimpleHTTPServer
-import SocketServer
+from six.moves import SimpleHTTPServer, socketserver
 import socket
-from metaparticle import containerize
+from metaparticle_pkg import Containerize
 
 OK = 200
 
@@ -144,23 +155,24 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         self.send_response(OK)
         self.send_header("Content-type", "text/plain")
         self.end_headers()
-        self.wfile.write("Hello Metaparticle [{}] @ {}\n".format(self.path, socket.gethostname()))
+        self.wfile.write("Hello Metaparticle [{}] @ {}\n".format(self.path, socket.gethostname()).encode('UTF-8'))
         print("request for {}".format(self.path))
     def do_HEAD(self):
         self.send_response(OK)
         self.send_header("Content-type", "text/plain")
         self.end_headers()
 
-@containerize(
-    'docker.io/your-docker-user-goes-here',
-    options={
-        'ports': [8080],
+@Containerize(
+    package={
+        'repository': 'docker.io/your-docker-user-goes-here',
         'name': 'my-image',
         'publish': True
-    })
+    },
+    runtime={'ports': [8080]}
+)
 def main():
     Handler = MyHandler
-    httpd = SocketServer.TCPServer(("", port), Handler)
+    httpd = socketserver.TCPServer(("", port), Handler)
     httpd.serve_forever()
 
 if __name__ == '__main__':
@@ -171,7 +183,7 @@ Now if you run this with `python web.py` your webserver will be successfully exp
 
 ## Replicating and exposing on the web.
 As a final step, consider the task of exposing a replicated service on the internet.
-To do this, we're going to expand our usage of the `@containerize` tag. First we will
+To do this, we're going to expand our usage of the `@Containerize` tag. First we will
 add a `replicas` field, which will specify the number of replicas. Second we will
 set our execution environment to `metaparticle` which will launch the service
 into the currently configured Kubernetes environment.
@@ -180,24 +192,26 @@ Here's what the snippet looks like:
 
 ```python
 ...
-@containerize(
-    'docker.io/your-docker-user-goes-here',
-    options={
-        'replicas': 4,
-        'executor': 'metaparticle',
-        'ports': [8080],
+@Containerize(
+    package={
+        'repository': 'docker.io/your-docker-user-goes-here',
         'name': 'my-image',
         'publish': True
-    })
+    },
+    runtime={
+        'ports': [8080],
+        'replicas': 4,
+        'executor': 'metaparticle'
+    }
+)
 ...
 ```
 
 And the complete code looks like:
 ```python
-import SimpleHTTPServer
-import SocketServer
+from six.moves import SimpleHTTPServer, socketserver
 import socket
-from metaparticle import containerize
+from metaparticle_pkg import Containerize
 
 OK = 200
 
@@ -208,25 +222,28 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         self.send_response(OK)
         self.send_header("Content-type", "text/plain")
         self.end_headers()
-        self.wfile.write("Hello Metaparticle [{}] @ {}\n".format(self.path, socket.gethostname()))
+        self.wfile.write("Hello Metaparticle [{}] @ {}\n".format(self.path, socket.gethostname()).encode('UTF-8'))
         print("request for {}".format(self.path))
     def do_HEAD(self):
         self.send_response(OK)
         self.send_header("Content-type", "text/plain")
         self.end_headers()
 
-@containerize(
-    'docker.io/your-docker-user-goes-here',
-    options={
-        'ports': [8080],
-        'replicas': 4,
-        'runner': 'metaparticle',
+@Containerize(
+    package={
+        'repository': 'docker.io/your-docker-user-goes-here',
         'name': 'my-image',
         'publish': True
-    })
+    },
+    runtime={
+        'ports': [8080],
+        'replicas': 4,
+        'executor': 'metaparticle'
+    }
+)
 def main():
     Handler = MyHandler
-    httpd = SocketServer.TCPServer(("", port), Handler)
+    httpd = socketserver.TCPServer(("", port), Handler)
     httpd.serve_forever()
 
 if __name__ == '__main__':
