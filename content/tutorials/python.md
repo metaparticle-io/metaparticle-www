@@ -89,7 +89,8 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
     runtime={'public': True},
     package={
         'repository': 'docker.io/your-docker-user-goes-here', 
-        'name': 'my-image'
+        'name': 'my-image',
+        'publish': True
         }
 )
 def main():
@@ -131,9 +132,10 @@ The code snippet to add is:
 @Containerize(
     package={
         'repository': 'docker.io/your-docker-user-goes-here',
-        'name': 'my-image'
+        'name': 'my-image',
+        'publish': True
     },
-    runtime={'public': True, 'ports': [8080]}
+    runtime={'ports': [8080]}
 )
 ...
 ```
@@ -141,8 +143,7 @@ The code snippet to add is:
 This tells the runtime the port(s) to expose. The complete code looks like:
 
 ```python
-import SimpleHTTPServer
-import SocketServer
+from six.moves import SimpleHTTPServer, socketserver
 import socket
 from metaparticle_pkg import Containerize
 
@@ -155,7 +156,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         self.send_response(OK)
         self.send_header("Content-type", "text/plain")
         self.end_headers()
-        self.wfile.write("Hello Metaparticle [{}] @ {}\n".format(self.path, socket.gethostname()))
+        self.wfile.write("Hello Metparticle [{}] @ {}\n".format(self.path, socket.gethostname()).encode('UTF-8'))
         print("request for {}".format(self.path))
     def do_HEAD(self):
         self.send_response(OK)
@@ -165,13 +166,14 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 @Containerize(
     package={
         'repository': 'docker.io/your-docker-user-goes-here',
-        'name': 'my-image'
+        'name': 'my-image',
+        'publish': True
     },
-    runtime={'public': True, 'ports': [8080]}
+    runtime={'ports': [8080]}
 )
 def main():
     Handler = MyHandler
-    httpd = SocketServer.TCPServer(("", port), Handler)
+    httpd = socketserver.TCPServer(("", port), Handler)
     httpd.serve_forever()
 
 if __name__ == '__main__':
@@ -194,10 +196,10 @@ Here's what the snippet looks like:
 @Containerize(
     package={
         'repository': 'docker.io/your-docker-user-goes-here',
-        'name': 'my-image'
+        'name': 'my-image',
+        'publish': True
     },
     runtime={
-        'public': True,
         'ports': [8080],
         'replicas': 4,
         'executor': 'metaparticle'
@@ -208,21 +210,20 @@ Here's what the snippet looks like:
 
 And the complete code looks like:
 ```python
-import SimpleHTTPServer
-import SocketServer
+from six.moves import SimpleHTTPServer, socketserver
 import socket
-from metaparticle_pkg import containerize
+from metaparticle_pkg import Containerize
 
 OK = 200
 
-port = 8080
+port = 8088
 
 class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
     def do_GET(self):
         self.send_response(OK)
         self.send_header("Content-type", "text/plain")
         self.end_headers()
-        self.wfile.write("Hello Metaparticle [{}] @ {}\n".format(self.path, socket.gethostname()))
+        self.wfile.write("Hello Metparticle [{}] @ {}\n".format(self.path, socket.gethostname()).encode('UTF-8'))
         print("request for {}".format(self.path))
     def do_HEAD(self):
         self.send_response(OK)
@@ -231,19 +232,19 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
 @Containerize(
     package={
-        'repository': 'docker.io/your-docker-user-goes-here',
-        'name': 'my-image'
+        'repository': 'wbuchwalter',
+        'name': 'mp-server',
+        'publish': True
     },
     runtime={
-        'public': True,
-        'ports': [8080],
+        'ports': [8088],
         'replicas': 4,
         'executor': 'metaparticle'
     }
 )
 def main():
     Handler = MyHandler
-    httpd = SocketServer.TCPServer(("", port), Handler)
+    httpd = socketserver.TCPServer(("", port), Handler)
     httpd.serve_forever()
 
 if __name__ == '__main__':
