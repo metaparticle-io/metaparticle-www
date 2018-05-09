@@ -86,7 +86,6 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         self.end_headers()
 
 @Containerize(
-    runtime={'public': True},
     package={
         'repository': 'docker.io/your-docker-user-goes-here', 
         'name': 'my-image',
